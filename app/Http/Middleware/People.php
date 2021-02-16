@@ -24,7 +24,7 @@ class People
         }
         else{
             Auth::logout(); 
-            // return redirect()->route('denied');
+            return redirect()->route('denied');
         }
         return $next($request);
     }

@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Middleware\People;
+use App\Http\Middleware\Supplier;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,19 +19,20 @@ use Illuminate\Support\Facades\Auth;
 Route::get('/', function () {
     return view('welcome');
 });
-
+Route::get('/denied',[App\Http\Controllers\HomeController::class, 'denied'])->name('denied');
 Auth::routes();
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::group(['middleware' => 'auth'], function () {
     // Supplier Portal Routes
-    Route::group(['middleware' => 'supplier'], function () {
-
+    Route::middleware([Supplier::class])->group(function () {
+        Route::get('/supplier', [App\Http\Controllers\SupplierController::class, 'index'])->name('supplier');
 
     });
 
     //User Portal Routes
-    Route::group(['middleware' => 'people'], function () {
+    Route::middleware([People::class])->group(function () {
+        Route::get('/people', [App\Http\Controllers\PeopleController::class, 'index'])->name('people');
+        Route::get('/people/products',[App\Http\Controllers\PeopleController::class, 'products']);
 
 
 
