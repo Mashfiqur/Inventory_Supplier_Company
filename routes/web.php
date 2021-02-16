@@ -20,6 +20,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::get('/denied',[App\Http\Controllers\HomeController::class, 'denied'])->name('denied');
+Route::get('/mashfiq', [App\Http\Controllers\PeopleController::class, 'mas']);
+
 Auth::routes();
 
 Route::group(['middleware' => 'auth'], function () {
@@ -32,8 +34,12 @@ Route::group(['middleware' => 'auth'], function () {
     //User Portal Routes
     Route::middleware([People::class])->group(function () {
         Route::get('/people', [App\Http\Controllers\PeopleController::class, 'index'])->name('people');
-        Route::get('/people/products',[App\Http\Controllers\PeopleController::class, 'products']);
-
+        
+        // Vue Page Products
+        Route::get('/people/products/{any?}', function() {
+            return view('layouts.products');
+          })->where('any', '.*')->name('people_products');
+        
 
 
     });
