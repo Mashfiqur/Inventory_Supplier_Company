@@ -25,7 +25,7 @@
 
             </div>
             <div class="col-md-6">
-                <label for="exampleInputEmail1" class="form-label font-weight-bold">Supplier</label>
+                <label for="exampleInputEmail1" class="form-label font-weight-bold">Supplier</label><br>
                 <select name="supplier" id="supplier" required>
                     <option value="">Select Supplier</option>
                     @isset($suppliers)
@@ -96,9 +96,9 @@
 </div>
 
 </div>
-<div class="row">
-    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-    <button type="submit" class="btn btn-primary">Submit</button>
+<div class="row float-right container ">
+    <a type="button" href="{{ url('/people/orders') }}'" class="btn btn-secondary" >Back</a>
+    <button type="submit" class="mx-3 btn btn-primary">Submit</button>
     </form>
 </div>
 
