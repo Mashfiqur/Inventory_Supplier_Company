@@ -51,7 +51,7 @@ Route::group(['middleware' => 'auth'], function () {
         //Orders
         Route::get('/people/orders', [App\Http\Controllers\OrderController::class, 'index'])->name('orders');
         Route::get('/people/order/create', [App\Http\Controllers\OrderController::class, 'new']);
-        Route::post('/order/create' , [App\Http\Controllers\OrderController::class, 'create']);
+        Route::post('/order/create', [App\Http\Controllers\OrderController::class, 'store']);
         Route::post('/order/delete', [App\Http\Controllers\OrderController::class, 'destroy']);
         Route::post('/order/update' , [App\Http\Controllers\OrderController::class, 'update']);
 
