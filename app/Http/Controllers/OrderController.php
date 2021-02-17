@@ -47,4 +47,12 @@ class OrderController extends Controller
 
     }
 
+    public function status_dispatch(Request $request){
+
+        $shipment = Shipment::where('id', $request->id)->update(['dispatched_at' => Carbon::Now()]);
+        if($shipment){
+            return back();
+        }
+    }
+
 }

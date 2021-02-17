@@ -22,7 +22,7 @@
                         <div class="card-body-icon">
                             <i class="lni lni-star"></i>
                         </div>
-                        <div class="mr-5">26 Products</div>
+                        <div class="mr-5">{{ $products }} Products</div>
                     </div>
                     <a class="card-footer text-white clearfix small z-1" href="{{ url('/people/products') }}">
                         <span class="float-left">View Details</span>
@@ -38,7 +38,7 @@
                         <div class="card-body-icon">
                           <i class="lni lni-creative-commons"></i>
                         </div>
-                        <div class="mr-5">11 New Orders</div>
+                        <div class="mr-5">{{ $placed_orders }} New Orders</div>
                     </div>
                     <a class="card-footer text-white clearfix small z-1" href="{{ url('/people/orders') }}">
                         <span class="float-left">View Details</span>
@@ -54,7 +54,7 @@
                         <div class="card-body-icon">
                           <i class="lni lni-cloud"></i>
                         </div>
-                        <div class="mr-5">123 Recieved Orders</div>
+                        <div class="mr-5">{{ $recieved_orders }} Recieved Orders</div>
                     </div>
                     <a class="card-footer text-white clearfix small z-1" href="{{ url('/people/orders') }}">
                         <span class="float-left">View Details</span>

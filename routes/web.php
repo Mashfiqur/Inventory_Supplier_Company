@@ -31,6 +31,9 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('/supplier/open-orders', [App\Http\Controllers\SupplierController::class, 'open_orders']);
         Route::get('/supplier/closed-orders', [App\Http\Controllers\SupplierController::class, 'closed_orders']);
 
+
+        Route::post('/order/dispatch', [App\Http\Controllers\OrderController::class, 'status_dispatch']);
+
     });
 
     //User Portal Routes

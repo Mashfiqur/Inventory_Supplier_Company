@@ -24,7 +24,7 @@
                         <div class="card-body-icon">
                           <i class="lni lni-creative-commons"></i>
                         </div>
-                        <div class="mr-5">11 New Orders</div>
+                        <div class="mr-5">{{ $open_orders }} New Orders</div>
                     </div>
                     <a class="card-footer text-white clearfix small z-1" href="{{ url('/supplier/open-orders') }}">
                         <span class="float-left">View Details</span>
@@ -40,7 +40,7 @@
                         <div class="card-body-icon">
                           <i class="lni lni-cloud"></i>
                         </div>
-                        <div class="mr-5">123 Dispatched Orders</div>
+                        <div class="mr-5">{{ $closed_orders }} Dispatched Orders</div>
                     </div>
                     <a class="card-footer text-white clearfix small z-1" href="{{ url('/supplier/closed-orders') }}">
                         <span class="float-left">View Details</span>
