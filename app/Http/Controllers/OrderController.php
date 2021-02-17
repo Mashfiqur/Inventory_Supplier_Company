@@ -55,4 +55,11 @@ class OrderController extends Controller
         }
     }
 
+    public function destroy(Request $request){
+        $shipment = Shipment::where('id', $request->id)->delete();
+        if($shipment){
+            return back();
+        }
+    }
+
 }

@@ -56,7 +56,6 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('/people/order/create', [App\Http\Controllers\OrderController::class, 'new']);
         Route::post('/order/create', [App\Http\Controllers\OrderController::class, 'store']);
         Route::post('/order/delete', [App\Http\Controllers\OrderController::class, 'destroy']);
-        Route::post('/order/update' , [App\Http\Controllers\OrderController::class, 'update']);
 
     });
 });
