@@ -18,6 +18,7 @@ class CreateShipmentsTable extends Migration
             $table->foreignId('company_id');
             $table->string('name');
             $table->boolean('is_dispatch')->default('0');
+            $table->string('dispatched_at')->nullable();
             $table->timestamps();
         });
     }

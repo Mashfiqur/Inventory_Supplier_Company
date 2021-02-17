@@ -12,52 +12,39 @@ class ProductController extends Controller
     
     public function index()
     {
-        // $products = Product::where('company_id',Auth::user()->company_id)->get()->toArray();
-        $products = Product::all()->toArray();
-
-        return array_reverse($products);
-    }
-    public function list()
-    {
-        dd("HI");
         $products = Product::where('company_id',Auth::user()->company_id)->get()->toArray();
-
-        return array_reverse($products);
+        return view('people.products',compact('products'));
     }
-    // add post
-    public function add(Request $request)
+   
+    // add product
+    public function create(Request $request)
     {
         $product = new Product([
-            'sku' => $request->input('sku'),
+            'sku' => $request->sku,
             'company_id' => Auth::user()->company_id,
         ]);
         $product->save();
  
-        return response()->json('The product successfully added');
+        return back();
     }
  
-    // edit post
-    public function edit($id)
+   
+ 
+    // update product
+    public function update( Request $request)
     {
-        $product = Product::find($id);
-        return response()->json($product);
+        $product = Product::find($request->id);
+        $product->sku = $request->sku;
+        $product->update();
+ 
+        return back()->with('The product successfully updated');
     }
  
-    // update post
-    public function update($id, Request $request)
-    {
-        $product = Product::find($id);
-        $product->update($request->all());
+    // delete product
+    public function destroy(Request $request)
+    { 
+        $product = Product::where('id',$request->id)->delete();
  
-        return response()->json('The product successfully updated');
-    }
- 
-    // delete post
-    public function delete($id)
-    {
-        $product = Product::find($id);
-        $product->delete();
- 
-        return response()->json('The product successfully deleted');
+        return back()->with('The product successfully deleted');
     }
 }
